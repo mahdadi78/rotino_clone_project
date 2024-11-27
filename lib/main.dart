@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rotino_clone_project/Views/home_page.dart';
-import 'package:rotino_clone_project/themes/theme_controller.dart';
+import 'package:rotino_clone_project/Controllers/themes/theme_controller.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeController themeController = Get.put(ThemeController());
+
     return GetMaterialApp(
       theme: themeController.isDarkMoode.value
           ? MyThemes.darkTheme
