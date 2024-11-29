@@ -14,11 +14,11 @@ class MyThemes {
     textTheme: TextTheme(
       titleLarge: GoogleFonts.lalezar(
           color: Colors.black, fontSize: 22, fontWeight: FontWeight.bold),
-      bodySmall: GoogleFonts.ubuntu(color: Colors.white, fontSize: 15),
-      labelSmall: GoogleFonts.ubuntu(color: Colors.white, fontSize: 10),
-      labelLarge: GoogleFonts.ubuntu(
-          color: Colors.white, fontSize: 15, fontWeight: FontWeight.w400),
-      titleSmall: GoogleFonts.ubuntu(color: Colors.black, fontSize: 12),
+      bodySmall: GoogleFonts.lalezar(color: Colors.white, fontSize: 15),
+      labelSmall: GoogleFonts.lalezar(color: Colors.white, fontSize: 10),
+      labelLarge: GoogleFonts.lalezar(
+          color: Colors.blueAccent, fontSize: 15, fontWeight: FontWeight.w400),
+      titleSmall: GoogleFonts.lalezar(color: Colors.black, fontSize: 12),
     ),
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.blueGrey,
@@ -42,11 +42,11 @@ class MyThemes {
     textTheme: TextTheme(
       titleLarge: GoogleFonts.lalezar(
           color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
-      bodySmall: GoogleFonts.ubuntu(color: Colors.black, fontSize: 15),
-      labelSmall: GoogleFonts.ubuntu(color: Colors.black87, fontSize: 10),
-      labelLarge: GoogleFonts.ubuntu(
-          color: Colors.black87, fontSize: 15, fontWeight: FontWeight.w400),
-      titleSmall: GoogleFonts.ubuntu(color: Colors.black, fontSize: 12),
+      bodySmall: GoogleFonts.lalezar(color: Colors.black, fontSize: 15),
+      labelSmall: GoogleFonts.lalezar(color: Colors.black87, fontSize: 10),
+      labelLarge: GoogleFonts.lalezar(
+          color: Colors.blueAccent, fontSize: 15, fontWeight: FontWeight.w400),
+      titleSmall: GoogleFonts.lalezar(color: Colors.black, fontSize: 12),
     ),
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.blue,

@@ -86,49 +86,22 @@ class Date {
 
 class Day {
   String name;
-  Events events;
+
   Number number;
 
   Day({
     required this.name,
-    required this.events,
     required this.number,
   });
 
   factory Day.fromJson(Map<String, dynamic> json) => Day(
         name: json["name"],
-        events: Events.fromJson(json["events"]),
         number: Number.fromJson(json["number"]),
       );
 
   Map<String, dynamic> toJson() => {
         "name": name,
-        "events": events.toJson(),
         "number": number.toJson(),
-      };
-}
-
-class Events {
-  Local local;
-  dynamic holy;
-  dynamic global;
-
-  Events({
-    required this.local,
-    required this.holy,
-    required this.global,
-  });
-
-  factory Events.fromJson(Map<String, dynamic> json) => Events(
-        local: Local.fromJson(json["local"]),
-        holy: json["holy"],
-        global: json["global"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "local": local.toJson(),
-        "holy": holy,
-        "global": global,
       };
 }
 
