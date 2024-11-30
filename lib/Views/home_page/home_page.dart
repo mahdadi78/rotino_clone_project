@@ -14,7 +14,7 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('روتینو'),
         actions: const [
-          AddBotton(),
+          AddRoutineBotton(),
           MoreDetailes(),
         ],
       ),
