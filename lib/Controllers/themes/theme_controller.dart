@@ -14,10 +14,11 @@ class MyThemes {
     textTheme: TextTheme(
       titleLarge: GoogleFonts.lalezar(
           color: Colors.black, fontSize: 22, fontWeight: FontWeight.bold),
-      bodySmall: GoogleFonts.lalezar(color: Colors.white, fontSize: 15),
-      labelSmall: GoogleFonts.lalezar(color: Colors.white, fontSize: 10),
+      bodySmall: GoogleFonts.lalezar(
+          color: const Color.fromARGB(255, 10, 7, 7), fontSize: 15),
+      labelSmall: GoogleFonts.lalezar(color: Colors.white, fontSize: 15),
       labelLarge: GoogleFonts.lalezar(
-          color: Colors.blueAccent, fontSize: 15, fontWeight: FontWeight.w400),
+          color: Colors.blueAccent, fontSize: 20, fontWeight: FontWeight.w400),
       titleSmall: GoogleFonts.lalezar(color: Colors.black, fontSize: 12),
     ),
     appBarTheme: const AppBarTheme(
@@ -26,7 +27,7 @@ class MyThemes {
     unselectedWidgetColor: Colors.white70,
     primaryColorLight: Colors.black,
     scaffoldBackgroundColor: Colors.grey.shade900,
-    primaryColor: const Color.fromARGB(255, 6, 28, 67),
+    primaryColor: Colors.blueAccent,
     secondaryHeaderColor: Colors.white,
     iconTheme: const IconThemeData(color: Colors.black, opacity: 0.8),
     // textSelectionTheme: const TextSelectionThemeData(
@@ -43,9 +44,9 @@ class MyThemes {
       titleLarge: GoogleFonts.lalezar(
           color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
       bodySmall: GoogleFonts.lalezar(color: Colors.black, fontSize: 15),
-      labelSmall: GoogleFonts.lalezar(color: Colors.black87, fontSize: 10),
+      labelSmall: GoogleFonts.lalezar(color: Colors.black87, fontSize: 15),
       labelLarge: GoogleFonts.lalezar(
-          color: Colors.blueAccent, fontSize: 15, fontWeight: FontWeight.w400),
+          color: Colors.blueAccent, fontSize: 20, fontWeight: FontWeight.w400),
       titleSmall: GoogleFonts.lalezar(color: Colors.black, fontSize: 12),
     ),
     appBarTheme: const AppBarTheme(
@@ -54,7 +55,7 @@ class MyThemes {
     unselectedWidgetColor: Colors.black54,
     primaryColorLight: Colors.white,
     scaffoldBackgroundColor: Colors.white,
-    primaryColor: const Color(0xff7FC7D9),
+    primaryColor: Colors.blueAccent,
     secondaryHeaderColor: Colors.black,
     iconTheme: const IconThemeData(color: Colors.white, opacity: 0.8),
 

@@ -17,9 +17,7 @@ class DateController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-
     getWeekDay();
-    print(jome.value);
   }
 
   void getWeekDay() async {
@@ -38,7 +36,7 @@ class DateController extends GetxController {
 
 //todo weekDayNumber  set to home page    with my controller
   daySetter() {
-    if (weekDay.value == 0) {
+    if (weekDay.value == 7) {
       shanbe.value = true;
     } else if (weekDay.value == 1) {
       shanbe1.value = true;
@@ -66,7 +64,24 @@ class DateController extends GetxController {
         padding: const EdgeInsets.all(5.0),
         child: Text(
           champ,
-          style: Theme.of(context).textTheme.labelMedium,
+          style: Theme.of(context).textTheme.labelSmall,
+        ),
+      );
+    }
+  }
+
+  Widget dateNumWidget(context, bool eachShanbe, String champ) {
+    if (eachShanbe) {
+      return Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Text(champ, style: Theme.of(context).textTheme.labelLarge),
+      );
+    } else {
+      return Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Text(
+          champ,
+          style: Theme.of(context).textTheme.labelSmall,
         ),
       );
     }

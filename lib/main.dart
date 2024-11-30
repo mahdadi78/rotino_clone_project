@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rotino_clone_project/Views/home_page.dart';
+import 'package:rotino_clone_project/Views/home_page/home_page.dart';
 import 'package:rotino_clone_project/Controllers/themes/theme_controller.dart';
 
 void main() {
