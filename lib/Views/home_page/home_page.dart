@@ -13,48 +13,61 @@ class MyHomePage extends StatelessWidget {
     DateController dateController = Get.put(DateController());
     RoutinController routinController = Get.put(RoutinController());
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('روتینو'),
-        actions: const [
-          AddRoutineBotton(),
-          MoreDetailes(),
-        ],
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            flex: 1,
-            child: dateWidget(context, dateController),
-          ),
-          Expanded(
-            flex: 10,
-            child: SizedBox(
-              child: Obx(
-                () => ReorderableListView(
-                  children: <Widget>[
-                    for (int index = 0;
-                        index < routinController.routinList.length;
-                        index += 1)
-                      Padding(
-                        key: Key('$index'),
-                        padding: const EdgeInsets.all(8.0),
-                        child: ListTile(
-                          tileColor: routinController.routinList[index].color,
-                          title: Text(
-                            routinController.routinList[index].title,
-                            style: Theme.of(context).textTheme.bodySmall,
+        appBar: AppBar(
+          title: const Text('روتینو'),
+          actions: const [
+            AddRoutineBotton(),
+            MoreDetailes(),
+          ],
+        ),
+        body: Obx(() {
+          return Column(
+            children: [
+              Expanded(
+                flex: 1,
+                child: dateWidget(context, dateController),
+              ),
+              // ignore: invalid_use_of_protected_member
+              routinController.routinList.value.isNotEmpty
+                  ? Expanded(
+                      flex: 10,
+                      child: SizedBox(
+                        child: Obx(
+                          () => ReorderableListView(
+                            children: <Widget>[
+                              for (int index = 0;
+                                  index < routinController.routinList.length;
+                                  index += 1)
+                                Padding(
+                                  key: Key('$index'),
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: ListTile(
+                                    tileColor: routinController
+                                        .routinList[index].color,
+                                    title: Text(
+                                      routinController.routinList[index].title,
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                  ),
+                                ),
+                            ],
+                            onReorder: (int oldIndex, int newIndex) {},
                           ),
                         ),
                       ),
-                  ],
-                  onReorder: (int oldIndex, int newIndex) {},
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+                    )
+                  : Expanded(
+                      flex: 10,
+                      child: Center(
+                        child: Text(
+                            style: Theme.of(context).textTheme.bodyLarge,
+                            'روتینی وجود ندارد \nبا استفاده از دکمه +میتوانی روتین اضافه کنی'),
+                      ),
+                    ),
+            ],
+          );
+        }));
   }
 
   Obx dateWidget(BuildContext context, DateController controller) {

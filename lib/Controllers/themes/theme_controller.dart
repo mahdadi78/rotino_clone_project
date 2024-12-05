@@ -12,6 +12,7 @@ class MyThemes {
   static final darkTheme = ThemeData(
     useMaterial3: false,
     textTheme: TextTheme(
+      bodyLarge: GoogleFonts.lalezar(color: Colors.white70, fontSize: 20),
       titleLarge: GoogleFonts.lalezar(
           color: Colors.black, fontSize: 22, fontWeight: FontWeight.bold),
       bodySmall: GoogleFonts.lalezar(
@@ -44,6 +45,7 @@ class MyThemes {
       titleLarge: GoogleFonts.lalezar(
           color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
       bodySmall: GoogleFonts.lalezar(color: Colors.black, fontSize: 15),
+      bodyLarge: GoogleFonts.lalezar(color: Colors.black54, fontSize: 20),
       labelSmall: GoogleFonts.lalezar(color: Colors.black87, fontSize: 15),
       labelLarge: GoogleFonts.lalezar(
           color: Colors.blueAccent, fontSize: 20, fontWeight: FontWeight.w400),

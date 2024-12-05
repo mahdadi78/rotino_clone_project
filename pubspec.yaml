@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  linear_progress_bar: ^1.1.2
   google_fonts: ^6.2.1
   http: ^1.2.2
   get: ^4.6.6

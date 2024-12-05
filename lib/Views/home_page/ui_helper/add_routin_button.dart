@@ -25,7 +25,9 @@ class AddRoutineBotton extends StatelessWidget {
                   actions: [
                     TextButton(
                         onPressed: () => saveButtonFuntion(
-                            routinController, texteditingcontrollerTitle),
+                            routinController,
+                            texteditingcontrollerTitle,
+                            texteditingcontrollerRepetition),
                         child: Text(
                           'ذخیره',
                           style: Theme.of(context).textTheme.labelSmall,
@@ -170,15 +172,26 @@ class AddRoutineBotton extends StatelessWidget {
     );
   }
 
-  saveButtonFuntion(routinController, texteditingcontrollerTitle) {
-    if (!texteditingcontrollerTitle.text.isEmpty) {
+  saveButtonFuntion(routinController, texteditingcontrollerTitle,
+      texteditingcontrollerRepetition) {
+    if (!texteditingcontrollerTitle.text.isEmpty &&
+        !texteditingcontrollerRepetition.text.isEmpty) {
       routinController.setRoutin(
-          texteditingcontrollerTitle.text, true, 4, Colors.pink);
+          texteditingcontrollerTitle.text, true, 4, Colors.blue);
       texteditingcontrollerTitle.clear();
-    } else {
+      texteditingcontrollerRepetition.clear();
+    } else if (texteditingcontrollerTitle.text.isEmpty) {
       Get.snackbar(
         '!روتینو ای عزیز',
         "لطفا روتینی با نام مشخص ایجاد کنید",
+        colorText: Colors.white,
+        backgroundColor: Colors.lightBlue,
+        icon: const Icon(Icons.error),
+      );
+    } else if (texteditingcontrollerRepetition.text.isEmpty) {
+      Get.snackbar(
+        '!روتینو ای عزیز',
+        "لطفا تعداد تکرار روتین در هفته را مشخص کنید",
         colorText: Colors.white,
         backgroundColor: Colors.lightBlue,
         icon: const Icon(Icons.error),
