@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:rotino_clone_project/Controllers/routin_controller.dart';
 
 class AddRoutineBotton extends StatelessWidget {
   const AddRoutineBotton({
@@ -7,7 +9,10 @@ class AddRoutineBotton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController textEditingController = TextEditingController();
+    RoutinController routinController = Get.put(RoutinController());
+    TextEditingController texteditingcontrollerRepetition =
+        TextEditingController();
+    TextEditingController texteditingcontrollerTitle = TextEditingController();
 
     return IconButton(
         onPressed: () {
@@ -16,6 +21,16 @@ class AddRoutineBotton extends StatelessWidget {
             builder: (BuildContext context) {
               return Scaffold(
                 appBar: AppBar(
+                  backgroundColor: Theme.of(context).primaryColor,
+                  actions: [
+                    TextButton(
+                        onPressed: () => saveButtonFuntion(
+                            routinController, texteditingcontrollerTitle),
+                        child: Text(
+                          'ذخیره',
+                          style: Theme.of(context).textTheme.labelSmall,
+                        )),
+                  ],
                   centerTitle: true,
                   title: const Text(
                     'ساخت روتین جدید',
@@ -25,8 +40,8 @@ class AddRoutineBotton extends StatelessWidget {
                 body: SizedBox.expand(
                   child: Column(
                     children: [
-                      routinName(context),
-                      weeklyReapid(textEditingController, context),
+                      routinName(context, texteditingcontrollerTitle),
+                      weeklyReapid(texteditingcontrollerRepetition, context),
                       reminder(context)
                     ],
                   ),
@@ -131,12 +146,13 @@ class AddRoutineBotton extends StatelessWidget {
     );
   }
 
-  Widget routinName(BuildContext context) {
+  Widget routinName(BuildContext context, controller) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: TextFormField(
+          controller: controller,
           decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
               borderRadius: const BorderRadius.all(Radius.circular(15)),
@@ -152,5 +168,21 @@ class AddRoutineBotton extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  saveButtonFuntion(routinController, texteditingcontrollerTitle) {
+    if (!texteditingcontrollerTitle.text.isEmpty) {
+      routinController.setRoutin(
+          texteditingcontrollerTitle.text, true, 4, Colors.pink);
+      texteditingcontrollerTitle.clear();
+    } else {
+      Get.snackbar(
+        '!روتینو ای عزیز',
+        "لطفا روتینی با نام مشخص ایجاد کنید",
+        colorText: Colors.white,
+        backgroundColor: Colors.lightBlue,
+        icon: const Icon(Icons.error),
+      );
+    }
   }
 }

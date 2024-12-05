@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rotino_clone_project/Controllers/date_controller.dart';
+import 'package:rotino_clone_project/Controllers/routin_controller.dart';
 import 'package:rotino_clone_project/Views/home_page/ui_helper/add_routin_button.dart';
 import 'package:rotino_clone_project/Views/home_page/ui_helper/more_details_botton.dart';
 
@@ -9,7 +10,8 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DateController controller = Get.put(DateController());
+    DateController dateController = Get.put(DateController());
+    RoutinController routinController = Get.put(RoutinController());
     return Scaffold(
       appBar: AppBar(
         title: const Text('روتینو'),
@@ -22,9 +24,34 @@ class MyHomePage extends StatelessWidget {
         children: [
           Expanded(
             flex: 1,
-            child: dateWidget(context, controller),
+            child: dateWidget(context, dateController),
           ),
-          Expanded(flex: 10, child: SizedBox(child: Container())),
+          Expanded(
+            flex: 10,
+            child: SizedBox(
+              child: Obx(
+                () => ReorderableListView(
+                  children: <Widget>[
+                    for (int index = 0;
+                        index < routinController.routinList.length;
+                        index += 1)
+                      Padding(
+                        key: Key('$index'),
+                        padding: const EdgeInsets.all(8.0),
+                        child: ListTile(
+                          tileColor: routinController.routinList[index].color,
+                          title: Text(
+                            routinController.routinList[index].title,
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ),
+                      ),
+                  ],
+                  onReorder: (int oldIndex, int newIndex) {},
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
